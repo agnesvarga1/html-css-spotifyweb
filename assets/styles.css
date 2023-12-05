@@ -16,17 +16,17 @@ body {
 .app {
   height: 100vh;
 }
-
+/*****Main*****/
 .main {
   height: 90%;
   display: flex;
 }
-
+/*SIDE BAR*/
 .main .side-nav {
   width: 10%;
   background-color: black;
 }
-
+/*MAIN OF THE MAIN*/
 .main-main {
   width: 90%;
   background-color: #282828;
@@ -34,7 +34,7 @@ body {
 }
 
 .upgrade {
-  height: 80px;
+  min-height: 80px;
   background-color: #1e2b4b;
 }
 
@@ -44,37 +44,101 @@ body {
 }
 
 .main .main-main .container {
-  padding: 1rem;
+  width: 95%;
+  margin: 0 auto;
 }
-
-.main .main-main .container .recently-played {
+/*RECENTLY PLAYED*/
+.main .main-main .container .recently-played,
+.main .main-main .container .fav-playlists,
+.main .main-main .container .artisti-pop {
+  padding-block: 1rem;
   display: flex;
-
   flex-direction: column;
   gap: 10px;
 }
 
-.recently-played .cards {
+.cards {
+  padding-block: 1rem;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
 
-.recently-played .card {
+.card {
   border: 1px solid #e1e4de;
-  width: calc((100% / 2) - 10px);
+  width: calc((100% / 2) - 5px);
 }
-.recently-played .card .card-img {
-  min-height: 230px;
+.card .card-img {
+  width: 100%;
   aspect-ratio: 1;
   background-color: burlywood;
 }
 
-.recently-played .card .card-footer {
+.card .card-footer {
   padding: 1rem;
 }
 
+/*FAV PLAYLISTS*/
+.fav-playlists {
+  background-color: lightcoral;
+}
+
+.artisti-pop {
+  background-color: #075c31;
+}
+.artisti-pop .round-img .cards .card .card-img {
+  background-color: transparent;
+}
+.artisti-pop .round-img {
+  width: 95%;
+  aspect-ratio: 1;
+  margin: 0 auto;
+  border-radius: 50%;
+  background-color: #1e2b4b;
+}
+/*PLAYER*/
 .player {
   min-height: 10%;
   background-color: #282828;
+}
+
+/**/ /**/ /**/
+/******MEDIA QUERIES******/
+
+/*SMALL SCREEN*/
+@media screen and (min-width: 576px) {
+  .main .side-nav {
+    width: 25%;
+  }
+
+  .main-main {
+    width: 75%;
+  }
+}
+/*TABLET*/
+
+@media screen and (min-width: 768px) {
+  .main .side-nav {
+    width: 20%;
+  }
+  .main-main {
+    width: 80%;
+  }
+
+  .card {
+    width: calc((100% / 4) - (30px / 4));
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  .main .side-nav {
+    width: 20%;
+  }
+  .main-main {
+    width: 80%;
+  }
+
+  .card {
+    width: calc((100% / 6) - ((10px * 5) / 4));
+  }
 }
