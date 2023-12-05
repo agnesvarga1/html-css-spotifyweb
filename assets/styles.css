@@ -10,6 +10,71 @@ html {
   font-family: "Montserrat", sans-serif;
 }
 
-h1 {
-  color: peachpuff;
+body {
+  color: #fff;
+}
+.app {
+  height: 100vh;
+}
+
+.main {
+  height: 90%;
+  display: flex;
+}
+
+.main .side-nav {
+  width: 10%;
+  background-color: black;
+}
+
+.main-main {
+  width: 90%;
+  background-color: #282828;
+  overflow: auto;
+}
+
+.upgrade {
+  height: 80px;
+  background-color: #1e2b4b;
+}
+
+.main .main-main .main-nav {
+  min-height: 80px;
+  background-color: #adff2f;
+}
+
+.main .main-main .container {
+  padding: 1rem;
+}
+
+.main .main-main .container .recently-played {
+  display: flex;
+
+  flex-direction: column;
+  gap: 10px;
+}
+
+.recently-played .cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.recently-played .card {
+  border: 1px solid #e1e4de;
+  width: calc((100% / 2) - 10px);
+}
+.recently-played .card .card-img {
+  min-height: 230px;
+  aspect-ratio: 1;
+  background-color: burlywood;
+}
+
+.recently-played .card .card-footer {
+  padding: 1rem;
+}
+
+.player {
+  min-height: 10%;
+  background-color: #282828;
 }
