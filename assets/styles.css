@@ -11,47 +11,84 @@ html {
 }
 
 body {
+  margin: 0;
   color: #fff;
+  font-size: 14px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
 }
 .app {
   height: 100vh;
 }
+
 /*****Main*****/
 .main {
-  height: 90%;
+  height: calc(100% - 90px);
   display: flex;
 }
 /*SIDE BAR*/
 .main .side-nav {
-  width: 10%;
+  width: 50px;
   background-color: black;
 }
 /*MAIN OF THE MAIN*/
 .main-main {
-  width: 90%;
-  background-color: #282828;
+  padding-top: 90px;
+  width: calc(100% - 50px);
+  background-color: #141922;
   overflow: auto;
 }
 
-.upgrade {
-  min-height: 80px;
-  background-color: #1e2b4b;
+.main-main .upgrade {
+  padding: 1rem;
+  position: fixed;
+  right: 0;
+  left: 50px;
+  top: 0;
+  background-color: #1e2b4b67;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.upgrade .upgrade-btn {
+  padding: 5px 10px;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  text-transform: uppercase;
 }
 
 .main .main-main .main-nav {
-  min-height: 80px;
-  background-color: #adff2f;
+  color: #76797d;
+  padding: 0.5rem;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.main .main-main .container {
-  width: 95%;
-  margin: 0 auto;
+.main .main-main .main-nav .nav-item {
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: bold;
+  cursor: pointer;
 }
+
+.main .main-main .main-nav .nav-item.current:after {
+  border-bottom: 2px solid #adff2f;
+  content: "";
+  display: block;
+  margin: 0 auto;
+  width: 30%;
+}
+
 /*RECENTLY PLAYED*/
 .main .main-main .container .recently-played,
 .main .main-main .container .fav-playlists,
 .main .main-main .container .artisti-pop {
-  padding-block: 1rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -65,13 +102,22 @@ body {
 }
 
 .card {
-  border: 1px solid #e1e4de;
   width: calc((100% / 2) - 5px);
+
+  text-align: center;
+}
+
+.card h3 {
+  font-size: 12px;
+}
+
+.card span {
+  font-size: 10px;
+  color: #76797d;
 }
 .card .card-img {
   width: 100%;
   aspect-ratio: 1;
-  background-color: burlywood;
 }
 
 .card .card-footer {
@@ -79,26 +125,21 @@ body {
 }
 
 /*FAV PLAYLISTS*/
-.fav-playlists {
-  background-color: lightcoral;
-}
-
-.artisti-pop {
-  background-color: #075c31;
-}
-.artisti-pop .round-img .cards .card .card-img {
-  background-color: transparent;
+.main .main-main .container .fav-playlists span,
+.main .main-main .container .artisti-pop span {
+  color: #76797d;
+  font-size: 12px;
 }
 .artisti-pop .round-img {
   width: 95%;
   aspect-ratio: 1;
   margin: 0 auto;
   border-radius: 50%;
-  background-color: #1e2b4b;
+  overflow: hidden;
 }
 /*PLAYER*/
 .player {
-  min-height: 10%;
+  min-height: 90px;
   background-color: #282828;
 }
 
@@ -108,48 +149,61 @@ body {
 /*SMALL SCREEN*/
 @media screen and (min-width: 576px) {
   .main .side-nav {
-    width: 25%;
+    width: 250px;
+  }
+
+  .main-main .upgrade {
+    left: 250px;
   }
 
   .main-main {
-    width: 75%;
+    width: calc(100% - 250px);
+  }
+  .card h3 {
+    font-size: 14px;
+  }
+
+  .card span {
+    font-size: 12px;
   }
 }
 /*TABLET*/
 
 @media screen and (min-width: 768px) {
-  .main .side-nav {
-    width: 20%;
-  }
-  .main-main {
-    width: 80%;
-  }
-
   .card {
     width: calc((100% / 4) - (30px / 4));
   }
 }
-
+/*LARGE SCREEN*/
 @media screen and (min-width: 1100px) {
-  .main .side-nav {
-    width: 20%;
-  }
-  .main-main {
-    width: 80%;
-  }
-
   .card {
     width: calc((100% / 6) - ((10px * 5) / 4));
   }
+
+  .upgrade .upgrade-btn:hover {
+    transform: scale(1.2);
+  }
+
+  .main .main-main .main-nav .nav-item {
+    font-size: 0.7rem;
+  }
+  .main .main-main .main-nav .nav-item:hover {
+    color: #fff;
+  }
 }
 /*EXTRA NARROW VH*/
-@media screen and (height<100vh) {
+/* @media screen and (height<100vh) {
   .app {
     position: relative;
     overflow: hidden;
   }
   .player {
     position: fixed;
-    max-height: 150px;
+    height: 150px;
   }
 }
+@media screen and (height<500px) {
+  .player {
+    height: 150px;
+  }
+} */
