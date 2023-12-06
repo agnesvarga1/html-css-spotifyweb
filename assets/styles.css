@@ -33,7 +33,27 @@ img {
 .main .side-nav {
   width: 50px;
   background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
+.side-top,
+.side-bottom {
+  padding: 0.5rem;
+}
+
+.nav-icon {
+  width: 75%;
+  margin: 0.3rem auto;
+}
+.nav-icon.profile {
+  background-color: #808080;
+  padding: 3px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
 /*MAIN OF THE MAIN*/
 .main-main {
   padding-top: 90px;
