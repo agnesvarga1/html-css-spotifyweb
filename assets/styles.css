@@ -477,18 +477,60 @@ hr {
   }
   .create:hover span:first-child {
     background-color: #fff;
+    cursor: pointer;
   }
   .playlist-list > *,
   .side-bottom .side-nav-item {
     cursor: pointer;
   }
+
   .card {
     width: calc((100% / 6) - ((10px * 5) / 4));
+    position: relative;
   }
-  .upgrade .upgrade-btn:hover {
-    transform: scale(1.2);
+  /*Discs on hover*/
+  .card:hover {
+    cursor: pointer;
+  }
+  .card-img {
+    position: relative;
   }
 
+  .hover-play-container,
+  .hover-play {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .hover-play {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hover-play::after {
+    content: "\f144";
+    font-family: "Font Awesome 6 free";
+    font-weight: 400;
+    display: none;
+    transform: scale(2.5);
+  }
+  .card-img:hover .hover-play-container {
+    display: block;
+    background-color: #14192273;
+  }
+  .hover-play-container:hover > .hover-play::after {
+    display: block;
+    z-index: 100;
+  }
+
+  .hover-play:after .upgrade .upgrade-btn:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+  }
+  /*/**********MAIN NAV******************/
   .main .main-main .main-nav .nav-item {
     font-size: 0.7rem;
   }
@@ -502,5 +544,32 @@ hr {
   .player-right-volume {
     width: 70%;
     padding-right: 0.3rem;
+  }
+  .player-middle svg:hover,
+  .player-right svg:hover,
+  .player-left svg:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  .player-bar-played::after {
+    content: "";
+    width: 0.8rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+    background-color: #fff;
+    opacity: 0;
+  }
+
+  .player-bar-played:hover,
+  .current-volume:hover {
+    cursor: pointer;
+    background-color: #adff2f;
+  }
+
+  .player-bar-played:hover .player-bar-played::after {
+    opacity: 1;
   }
 }
