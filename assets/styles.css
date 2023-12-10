@@ -552,24 +552,29 @@ hr {
     cursor: pointer;
   }
 
-  .player-bar-played::after {
+  .player-bar-played::after,
+  .current-volume::after {
     content: "";
     width: 0.8rem;
     aspect-ratio: 1;
     border-radius: 50%;
     position: absolute;
     right: 0;
+
     background-color: #fff;
     opacity: 0;
   }
-
+  .current-volume::after {
+    width: 0.7rem;
+    top: -0.2rem;
+  }
   .player-bar-played:hover,
   .current-volume:hover {
     cursor: pointer;
     background-color: #adff2f;
   }
-
-  .player-bar-played:hover .player-bar-played::after {
+  .current-volume:hover:after,
+  .player-bar-played:hover:after {
     opacity: 1;
   }
 }
